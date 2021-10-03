@@ -19,7 +19,19 @@ namespace FormsStroki
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Console.WriteLine("Введите текст вида:d1+d2-d3+...dn");
+            string line = Console.ReadLine();
+            bool check = Logic.Check(line);
 
+            if (check)
+            {
+                int sum = Logic.GetSum(line);
+                Console.WriteLine(sum);
+            }
+            else
+            {
+                Console.WriteLine("Вы ввели пустую строку.");
+            }
         }
     }
     public class Logic
