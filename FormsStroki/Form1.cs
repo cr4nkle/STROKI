@@ -19,7 +19,7 @@ namespace FormsStroki
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string line = Console.ReadLine();
+            string line = textBox1.Text;
             bool check = Logic.Check(line);
 
             if (check)
