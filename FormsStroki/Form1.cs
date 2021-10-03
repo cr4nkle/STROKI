@@ -19,7 +19,6 @@ namespace FormsStroki
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Введите текст вида:d1+d2-d3+...dn");
             string line = Console.ReadLine();
             bool check = Logic.Check(line);
 
@@ -30,7 +29,7 @@ namespace FormsStroki
             }
             else
             {
-                MessageBox.Show("Вы ввели пустую строку.");
+                _ = MessageBox.Show("Вы ввели пустую строку.");
             }
         }
     }
