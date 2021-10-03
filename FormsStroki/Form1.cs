@@ -26,11 +26,11 @@ namespace FormsStroki
             if (check)
             {
                 int sum = Logic.GetSum(line);
-                Console.WriteLine(sum);
+                _ = MessageBox.Show(text: $"Сумма в строке\n{sum}");
             }
             else
             {
-                Console.WriteLine("Вы ввели пустую строку.");
+                MessageBox.Show("Вы ввели пустую строку.");
             }
         }
     }
