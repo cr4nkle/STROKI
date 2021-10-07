@@ -22,6 +22,8 @@ namespace FormsStroki
         {
             string line = textBox1.Text;
             bool check = Logic.Check(line);
+            Properties.Settings.Default.line = line;
+            Properties.Settings.Default.Save();
 
             if (check)
             {
