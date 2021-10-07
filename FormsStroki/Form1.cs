@@ -20,19 +20,28 @@ namespace FormsStroki
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string line = textBox1.Text;
-            bool check = Logic.Check(line);
+            string line = textBox1.Text;;
+            bool check = Logic.Check(line);           
             Properties.Settings.Default.line = line;
             Properties.Settings.Default.Save();
 
             if (check)
             {
-                int sum = Logic.GetSum(line);
-                _ = MessageBox.Show(text: $"Сумма в строке\n{sum}");
+                int sum;
+                try
+                {
+                    sum = Logic.GetSum(line);
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Вы ввели некорректные данные.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                MessageBox.Show(text: $"Сумма в строке\n{sum}");
             }
             else
             {
-                _ = MessageBox.Show("Вы ввели пустую строку.");
+                MessageBox.Show("Вы ввели пустую строку.");
             }
         }
     }
@@ -44,10 +53,11 @@ namespace FormsStroki
             string[] changeLine = line.Split(symbol);
             int[] arr = new int[changeLine.Length];
             int sum = int.Parse(changeLine[0]);
-
+            
             for (int i = 1; i < changeLine.Length; i++)
             {
-                arr[i] = int.Parse(changeLine[i]);
+                arr[i] = int.Parse(changeLine[i]);              
+                
                 if (i % 2 == 0)
                 {
                     sum = sum - arr[i];
