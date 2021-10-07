@@ -15,6 +15,7 @@ namespace FormsStroki
         public Form1()
         {
             InitializeComponent();
+            textBox1.Text = Properties.Settings.Default.line.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
