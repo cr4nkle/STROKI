@@ -66,7 +66,6 @@ namespace FormsStroki
                 {
                     sum = sum + arr[i];
                 }
-
             }
 
             return sum;
